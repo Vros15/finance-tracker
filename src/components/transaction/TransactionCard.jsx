@@ -1,3 +1,5 @@
+import "../transaction/TransactionCard.css"
+
 const TransactionCard = ({ transaction }) => {
   return (
     <div className="transaction-card">

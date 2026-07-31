@@ -1,0 +1,16 @@
+.transaction-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+}
+
+.transaction-card h3 {
+  text-transform: capitalize;
+  margin-bottom: .5rem;
+}
+
+.transaction-card p {
+  margin: .25rem 0;
+}
