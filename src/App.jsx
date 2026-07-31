@@ -9,6 +9,10 @@ import sampleTransactions from './data/sampleTransactions'
 
 function App() {
  const [transactions, setTransactions] = useState(sampleTransactions)
+ 
+ const addTransaction = (newTransaction) => {
+   setTransactions([...transactions, newTransaction]);
+ };
 
 
   return (
@@ -18,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard transactions={transactions} />} />
         <Route path="/transactions" element={<Transactions transactions={transactions} />} />
-        <Route path="/add-transactions" element={<AddTransactions />} />
+        <Route path="/add-transactions" element={<AddTransactions addTransaction={addTransaction} />} />
       </Routes>
 
     </>
