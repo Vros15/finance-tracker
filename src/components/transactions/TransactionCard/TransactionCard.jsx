@@ -1,4 +1,4 @@
-import "../transaction/TransactionCard.css"
+import "./TransactionCard.css"
 
 const TransactionCard = ({ transaction }) => {
   return (

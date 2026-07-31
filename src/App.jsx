@@ -2,9 +2,9 @@ import './App.css'
 import { useState } from 'react'
 import {Route, Routes} from "react-router"
 import Navbar from './components/layout/NavBar/NavBar'
-import AddTransactions from './pages/AddTransaction/AddTransaction'
+import ManageTransaction from './pages/manageTransaction/ManageTransaction'
 import Dashboard from './pages/Dashboard/Dashboard'
-import Transactions from './pages/Transactions/Transactions'
+import TransactionsList from './components/transactions/TransactionList/TransactionList'
 import sampleTransactions from './data/sampleTransactions'
 
 function App() {
@@ -18,11 +18,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <h1>Welcome to Finance Tracker</h1>
       <Routes>
         <Route path="/" element={<Dashboard transactions={transactions} />} />
-        <Route path="/transactions" element={<Transactions transactions={transactions} />} />
-        <Route path="/add-transactions" element={<AddTransactions addTransaction={addTransaction} />} />
+        <Route path="/manage-transactions" element={<ManageTransaction addTransaction={addTransaction} />} />
+        <Route path="*" element={<div>Sorry, this page does not exist</div>} />
       </Routes>
 
     </>

@@ -1,6 +1,6 @@
-import TransactionCard from "../../components/transaction/TransactionCard";
+import TransactionCard from "../TransactionCard/TransactionCard";
 
-const Transactions = ({ transactions }) => {
+const TransactionsList = ({ transactions }) => {
   
 
   return (
@@ -13,4 +13,4 @@ const Transactions = ({ transactions }) => {
   );
 };
 
-export default Transactions;
+export default TransactionsList;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddTransactions = ({ addTransaction }) => {
+const ManageTransaction = ({ addTransaction }) => {
   // State for the transaction form fields
 const [formData, setFormData] = useState({
   type: "income",
@@ -34,8 +34,8 @@ const handleSubmit = (e) => {
 
   return (
     <>
-      <h1>Add Transactions</h1>
-
+      <h1>Manage Transactions</h1>
+      <h2>Add a New Transaction</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
@@ -85,4 +85,4 @@ const handleSubmit = (e) => {
   );
 };
 
-export default AddTransactions;
+export default ManageTransaction;
