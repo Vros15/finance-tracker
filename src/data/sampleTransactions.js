@@ -1,14 +1,14 @@
 const sampleTransactions = [
   {
     id: 1,
-    type: "income",
+    type: "Income",
     amount: 2500,
     category: "Salary",
     note: "Bi-weekly paycheck",
   },
   {
     id: 2,
-    type: "expense",
+    type: "Expense",
     amount: 45,
     category: "Food",
     note: "Lunch",
