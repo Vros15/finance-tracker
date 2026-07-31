@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       <h1>Welcome to Finance Tracker</h1>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard transactions={transactions} />} />
         <Route path="/transactions" element={<Transactions transactions={transactions} />} />
         <Route path="/add-transactions" element={<AddTransactions />} />
       </Routes>
