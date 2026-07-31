@@ -1,16 +1,20 @@
 import { useState } from "react";
 
-const AddTransactions = () => {
+const AddTransactions = ({ addTransaction }) => {
   // State for the transaction form fields
-  const [type, setType] = useState("income");
-  const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("");
-  const [note, setNote] = useState("");
+const [formData, setFormData] = useState({
+  type: "income",
+  amount: "",
+  category: "",
+  note: "",
+});
   const resetForm = () => {
-    setType("income");
-    setAmount("");
-    setCategory("");
-    setNote("");
+    setFormData({
+      type: "income",
+      amount: "",
+      category: "",
+      note: "",
+    });
   };
 
 const handleSubmit = (e) => {
@@ -18,13 +22,13 @@ const handleSubmit = (e) => {
 
   const newTransaction = {
     id: Date.now(),
-    type,
-    amount: Number(amount),
-    category,
-    note,
+    type: formData.type,
+    amount: Number(formData.amount),
+    category: formData.category,
+    note: formData.note,
   };
 
-  console.log(newTransaction);
+  addTransaction(newTransaction);
   resetForm();
 };
 
@@ -37,7 +41,7 @@ const handleSubmit = (e) => {
           <label>
             Type:
           </label>
-          <select value={type} onChange={(e) => setType(e.target.value)}>
+          <select value={formData.type} onChange={(e) => setFormData({...formData, type: e.target.value})}>
             <option value="income">Income</option>
             <option value="expense">Expense</option>
           </select>
@@ -48,8 +52,8 @@ const handleSubmit = (e) => {
           </label>
           <input
             type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            value={formData.amount}
+            onChange={(e) => setFormData({...formData, amount: e.target.value})}
           />
         </div>
 
@@ -59,8 +63,8 @@ const handleSubmit = (e) => {
           </label>
           <input
             type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={formData.category}
+            onChange={(e) => setFormData({...formData, category: e.target.value})}
           />
         </div>
 
@@ -69,8 +73,8 @@ const handleSubmit = (e) => {
             Note:
           </label>
           <textarea
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
+            value={formData.note}
+            onChange={(e) => setFormData({...formData, note: e.target.value})}
           />
         </div>
 
