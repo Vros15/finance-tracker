@@ -1,8 +1,8 @@
 import './App.css'
 import {Route, Routes} from "react-router"
-import Navbar from './components/layout/NavBar/Navbar'
-import AddTransactions from './pages/AddTransaction/AddTransactions'
-import Dashboard from './pages/dashboard/Dashboard'
+import Navbar from './components/layout/NavBar/NavBar'
+import AddTransactions from './pages/AddTransaction/AddTransaction'
+import Dashboard from './pages/Dashboard/Dashboard'
 import Transactions from './pages/Transactions/Transactions'
 
 function App() {
