@@ -1,7 +1,7 @@
 import TransactionForm from "../../components/transactions/TransactionForm/TransactionForm";
 import TransactionList from "../../components/transactions/TransactionList/TransactionList";
 
-const ManageTransaction = ({ transactions, addTransaction }) => {
+const ManageTransaction = ({ transactions, addTransaction, deleteTransaction }) => {
   return (
     <>
       <h1>Manage Transactions</h1>
@@ -10,7 +10,7 @@ const ManageTransaction = ({ transactions, addTransaction }) => {
 
       <hr />
 
-      <TransactionList transactions={transactions} />
+      <TransactionList transactions={transactions} deleteTransaction={deleteTransaction} />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import "./TransactionCard.css"
 
-const TransactionCard = ({ transaction }) => {
+const TransactionCard = ({ transaction, deleteTransaction }) => {
   return (
     <div className="transaction-card">
       <h3>{transaction.type}</h3>
@@ -16,6 +16,7 @@ const TransactionCard = ({ transaction }) => {
       <p>
         <strong>Note:</strong> {transaction.note}
       </p>
+      <button onClick={() => deleteTransaction(transaction.id)}>Delete</button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import TransactionCard from "../TransactionCard/TransactionCard";
 
-const TransactionList = ({ transactions }) => {
+const TransactionList = ({ transactions, deleteTransaction }) => {
   return (
     <>
       <h2>Current Transactions</h2>
@@ -9,6 +9,7 @@ const TransactionList = ({ transactions }) => {
         <TransactionCard
           key={transaction.id}
           transaction={transaction}
+          deleteTransaction={deleteTransaction}
         />
       ))}
     </>
