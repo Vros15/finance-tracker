@@ -1,16 +1,18 @@
 import TransactionCard from "../TransactionCard/TransactionCard";
 
-const TransactionsList = ({ transactions }) => {
-  
-
+const TransactionList = ({ transactions }) => {
   return (
     <>
-      <h1>Transactions</h1>
+      <h2>Current Transactions</h2>
+
       {transactions.map((transaction) => (
-        <TransactionCard key={transaction.id} transaction={transaction} />
+        <TransactionCard
+          key={transaction.id}
+          transaction={transaction}
+        />
       ))}
     </>
   );
 };
 
-export default TransactionsList;
+export default TransactionList;
