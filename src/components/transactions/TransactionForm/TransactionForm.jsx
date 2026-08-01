@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const TransactionForm = ({ addTransaction }) => {
+const TransactionForm = ({ addTransaction, updateTransaction, editingTransaction, stopEditing }) => {
   const [formData, setFormData] = useState({
     type: "income",
     amount: "",
@@ -17,6 +17,17 @@ const TransactionForm = ({ addTransaction }) => {
     });
   };
 
+  useEffect(() => {
+    if (editingTransaction) {
+      setFormData({
+        type: editingTransaction.type,
+        amount: editingTransaction.amount,
+        category: editingTransaction.category,
+        note: editingTransaction.note,
+      });
+    }
+  }, [editingTransaction]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -28,7 +39,12 @@ const TransactionForm = ({ addTransaction }) => {
       note: formData.note,
     };
 
-    addTransaction(newTransaction);
+    if (editingTransaction) {
+      updateTransaction({ ...newTransaction, id: editingTransaction.id });
+      stopEditing();
+    } else {
+      addTransaction(newTransaction);
+    }
     resetForm();
   };
 
@@ -98,7 +114,17 @@ const TransactionForm = ({ addTransaction }) => {
           />
         </div>
 
-        <button type="submit">Add Transaction</button>
+        <button type="submit">
+        {editingTransaction
+            ? "Update Transaction"
+            : "Add Transaction"}
+        </button>
+
+        {editingTransaction && (
+            <button type="button" onClick={stopEditing}>
+                Cancel
+            </button>
+        )}
       </form>
     </>
   );

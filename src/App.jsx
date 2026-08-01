@@ -9,7 +9,8 @@ import sampleTransactions from "./data/sampleTransactions";
 
 function App() {
  const [transactions, setTransactions] = useState(sampleTransactions)
- 
+ const [editingTransaction, setEditingTransaction] = useState(null);
+
 const addTransaction = (newTransaction) => {
   setTransactions((previousTransactions) => [
     ...previousTransactions,
@@ -23,12 +24,37 @@ const deleteTransaction = (transactionId) => {
   );
 };
 
+const startEditing=(transaction) => {
+  setEditingTransaction(transaction);
+};
+
+const stopEditing = () => {
+  setEditingTransaction(null);
+};
+
+const updateTransaction = (updatedTransaction) => {
+  setTransactions((previousTransactions) =>
+    previousTransactions.map((transaction) =>
+      transaction.id === updatedTransaction.id
+        ? updatedTransaction
+        : transaction
+    )
+  );
+};
+
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Dashboard transactions={transactions} />} />
-        <Route path="/manage-transactions" element={<ManageTransaction transactions={transactions} addTransaction={addTransaction} deleteTransaction={deleteTransaction} />} />
+        <Route path="/manage-transactions" element={<ManageTransaction 
+        transactions={transactions} 
+        addTransaction={addTransaction} 
+        deleteTransaction={deleteTransaction} 
+        editingTransaction={editingTransaction} 
+        startEditing={startEditing} 
+        stopEditing={stopEditing}
+        updateTransaction={updateTransaction} />} />
         <Route path="*" element={<div>Sorry, this page does not exist</div>} />
       </Routes>
 
