@@ -1,0 +1,84 @@
+.transaction-form-title {
+	margin-bottom: 0.9rem;
+	font-size: 1.15rem;
+	letter-spacing: -0.01em;
+}
+
+.transaction-form {
+	gap: 1rem;
+	padding: 1.15rem;
+	border-radius: 18px;
+	border: 1px solid color-mix(in srgb, var(--border) 85%, white);
+	background: linear-gradient(180deg, #ffffff 0%, #f9f9fb 100%);
+	box-shadow: 0 10px 26px rgba(17, 24, 39, 0.08);
+}
+
+.transaction-form-field {
+	display: grid;
+	gap: 0.35rem;
+}
+
+.transaction-form-field label {
+	font-size: 0.88rem;
+	font-weight: 600;
+	color: #3a3a3f;
+}
+
+.transaction-form-field input,
+.transaction-form-field select,
+.transaction-form-field textarea {
+	padding: 0.7rem 0.8rem;
+	border-radius: 12px;
+	background-color: #ffffff;
+	border-color: #cdced3;
+	transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.transaction-form-field input:focus,
+.transaction-form-field select:focus,
+.transaction-form-field textarea:focus {
+	border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
+	background-color: #ffffff;
+}
+
+.transaction-form-actions {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 0.65rem;
+	flex-wrap: wrap;
+	padding-top: 0.45rem;
+}
+
+.transaction-form-actions button + button {
+	margin-left: 0;
+}
+
+.transaction-form-actions button {
+	min-width: 140px;
+}
+
+.button-secondary {
+	background: #ffffff;
+	color: var(--text-primary);
+	border-color: var(--border);
+}
+
+.button-secondary:hover {
+	background: #f7f7fa;
+}
+
+@media (max-width: 620px) {
+	.transaction-form {
+		padding: 1rem;
+	}
+
+	.transaction-form-actions {
+		justify-content: stretch;
+	}
+
+	.transaction-form-actions button {
+		width: 100%;
+	}
+}

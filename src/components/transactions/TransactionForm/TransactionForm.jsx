@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./TransactionForm.css";
 
 const TransactionForm = ({ addTransaction, updateTransaction, editingTransaction, stopEditing }) => {
   const [formData, setFormData] = useState({
@@ -50,13 +51,14 @@ const TransactionForm = ({ addTransaction, updateTransaction, editingTransaction
 
   return (
     <>
-      <h2>Add a New Transaction</h2>
+      <h2 className="transaction-form-title">Add a New Transaction</h2>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Type:</label>
+      <form className="transaction-form" onSubmit={handleSubmit}>
+        <div className="transaction-form-field">
+          <label htmlFor="transaction-type">Type:</label>
 
           <select
+            id="transaction-type"
             value={formData.type}
             onChange={(e) =>
               setFormData({
@@ -70,10 +72,11 @@ const TransactionForm = ({ addTransaction, updateTransaction, editingTransaction
           </select>
         </div>
 
-        <div>
-          <label>Amount:</label>
+        <div className="transaction-form-field">
+          <label htmlFor="transaction-amount">Amount:</label>
 
           <input
+            id="transaction-amount"
             type="number"
             value={formData.amount}
             onChange={(e) =>
@@ -85,10 +88,11 @@ const TransactionForm = ({ addTransaction, updateTransaction, editingTransaction
           />
         </div>
 
-        <div>
-          <label>Category:</label>
+        <div className="transaction-form-field">
+          <label htmlFor="transaction-category">Category:</label>
 
           <input
+            id="transaction-category"
             type="text"
             value={formData.category}
             onChange={(e) =>
@@ -100,10 +104,11 @@ const TransactionForm = ({ addTransaction, updateTransaction, editingTransaction
           />
         </div>
 
-        <div>
-          <label>Note:</label>
+        <div className="transaction-form-field">
+          <label htmlFor="transaction-note">Note:</label>
 
           <textarea
+            id="transaction-note"
             value={formData.note}
             onChange={(e) =>
               setFormData({
@@ -114,17 +119,19 @@ const TransactionForm = ({ addTransaction, updateTransaction, editingTransaction
           />
         </div>
 
-        <button type="submit">
-        {editingTransaction
+        <div className="transaction-form-actions">
+          <button type="submit">
+            {editingTransaction
             ? "Update Transaction"
             : "Add Transaction"}
-        </button>
+          </button>
 
-        {editingTransaction && (
-            <button type="button" onClick={stopEditing}>
+          {editingTransaction && (
+            <button className="button-secondary" type="button" onClick={stopEditing}>
                 Cancel
             </button>
-        )}
+          )}
+        </div>
       </form>
     </>
   );
