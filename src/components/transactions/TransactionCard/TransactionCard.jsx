@@ -2,11 +2,14 @@ import "./TransactionCard.css"
 
 const TransactionCard = ({ transaction, deleteTransaction, startEditing }) => {
   return (
-    <div className="transaction-card">
+    <div className={`transaction-card transaction-card-${transaction.type}`}>
       <h3>{transaction.type}</h3>
 
       <p>
-        <strong>Amount:</strong> ${transaction.amount}
+        <strong>Amount:</strong>{" "}
+        <span className={`transaction-amount ${transaction.type}`}>
+          {transaction.type === "income" ? "+" : "-"}${transaction.amount}
+        </span>
       </p>
 
       <p>

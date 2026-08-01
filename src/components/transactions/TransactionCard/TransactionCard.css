@@ -1,16 +1,56 @@
 .transaction-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
   padding: 1rem;
-  margin-bottom: 1rem;
-  background: white;
+  margin-bottom: 0;
+  background: #fff;
+}
+
+.transaction-card-income {
+  border-left: 4px solid #16a34a;
+}
+
+.transaction-card-expense {
+  border-left: 4px solid #dc2626;
 }
 
 .transaction-card h3 {
   text-transform: capitalize;
-  margin-bottom: .5rem;
+  margin-bottom: .45rem;
 }
 
 .transaction-card p {
-  margin: .25rem 0;
+  margin: .2rem 0;
+}
+
+.transaction-amount {
+  font-weight: 700;
+}
+
+.transaction-amount.income {
+  color: #15803d;
+}
+
+.transaction-amount.expense {
+  color: #b91c1c;
+}
+
+.transaction-actions {
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 0.65rem;
+}
+
+.transaction-actions button + button {
+  margin-left: 0;
+}
+
+.transaction-actions button:last-child {
+  background: #fff;
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.transaction-actions button:last-child:hover {
+  background: #f7f7fa;
 }

@@ -1,0 +1,9 @@
+.transaction-list {
+	display: grid;
+	gap: 0.9rem;
+}
+
+.transaction-list-items {
+	display: grid;
+	gap: 0.75rem;
+}
